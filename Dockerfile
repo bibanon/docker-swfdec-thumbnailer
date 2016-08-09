@@ -37,6 +37,13 @@ RUN makepkg --noconfirm
 USER root
 RUN pacman -U *.pkg.tar.xz --noprogressbar --noconfirm
 
+# clean up, uninstall buildutils
+USER root
+RUN rm -rf /tmp/scratch
+RUN pacman --noprogressbar --noconfirm -Rs base-devel
+
 # make it possible to access a folder from the host just for swfs 
 WORKDIR /swf
+RUN chown nobody:nobody /swf
+USER nobody
 VOLUME ["/swf"]
