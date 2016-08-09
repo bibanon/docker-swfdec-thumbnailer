@@ -7,7 +7,7 @@ SWFDIR=`pwd`/swf         # change this to the folder which contains all your SWF
 git clone https://github.com/bibanon/docker-swfdec-thumbnailer/
 cd docker-swfdec-thumbnailer
 docker build -t swfdec-thumbnailer .
-docker run -v $SWFDIR:/swf swfdec-gnome swfdec-thumbnailer 10seconds.swf 10seconds.swf.jpg
+docker run -v $SWFDIR:/swf swfdec-thumbnailer swfdec-thumbnailer 10seconds.swf 10seconds.swf.jpg
 ```
 
 ## Why SWFDec?
